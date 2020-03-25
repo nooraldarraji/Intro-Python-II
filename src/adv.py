@@ -1,6 +1,6 @@
 from room import Room
 
-# Declare all the rooms
+#! Declare all the rooms
 
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -22,7 +22,7 @@ earlier adventurers. The only exit is to the south."""),
 }
 
 
-# Link rooms together
+#! Link rooms together
 
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -34,18 +34,26 @@ room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
 #
-# Main
+#! Main
 #
 
-# Make a new player object that is currently in the 'outside' room.
+#! Make a new player object that is currently in the 'outside' room.
+new_player = Player('outside')
+#! Write a loop that:
+while True:
+    user_choice = raw_input('Please enter the direction "n, s, e, w" -> ')
+    if user_choice == 'n':
 
-# Write a loop that:
-#
-# * Prints the current room name
-# * Prints the current description (the textwrap module might be useful here).
-# * Waits for user input and decides what to do.
-#
-# If the user enters a cardinal direction, attempt to move to the room there.
-# Print an error message if the movement isn't allowed.
-#
-# If the user enters "q", quit the game.
+        #
+        # * Prints the current room name
+        # * Prints the current description (the textwrap module might be useful here).
+        # * Waits for user input and decides what to do.
+        #
+        #! If the user enters a cardinal direction, attempt to move to the room there.
+        #! Print an error message if the movement isn't allowed.
+        #
+        #! # If the user enters "q", quit the game.
+        # * Add a REPL parser to `adv.py` that accepts directional commands to move the player
+        #   * After each move, the REPL should print the name and description of the player's current room
+        #   * Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West
+        #   * The parser should print an error if the player tries to move where there is no room.
